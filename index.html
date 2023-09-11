@@ -1,1 +1,307 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="jpg" href="img/r.jpg">
+    <style>
+body {
+    background-color: #08151f;
+    color: #eaeaea;
+    font-family: 'rubik';
+    padding: 30px;
+    padding-left: 75px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    /*cursor: none;*/
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+a {
+    color: #eaeaea;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e1d500;
+}
+
+.header {
+    font-size: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* The progress container (grey background) */
+.progress-container {
+    position: fixed;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0);
+    top: 7.5%;
+}
+
+/* The progress bar (scroll indicator) */
+.progress-bar {
+    height: 2px;
+    background: #be9f00;
+    width: 0%;
+}
+
+img {
+    border-radius: 10px;
+    border: #be9f00 2px solid;
+    height: 150px;
+    margin-right: 15px;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 7.5%;
+    backdrop-filter: blur(3px);
+    top: 0;
+    left: 0;
+    /*border-bottom: #7e7e7e 1px dotted;*/
+    border-bottom: #272727 1px solid;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+nav:hover {
+    cursor: default;
+}
+
+nav a,
+nav p {
+    margin: 0 5px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.500);
+    z-index: 999;
+    color: black;
+    /*border: #aeaeae 2px dotted;*/
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'dmsans';
+}
+
+        /* Styles for the overlay background */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 998;
+}
+
+.close {
+    text-align: right;
+}
+
+.emailtext {
+    color: #eaeaea;
+    visibility: hidden;
+}
+
+.email:hover {
+    color: #e1d500;
+}
+
+/*.mouse-trail{
+  width: 5px;
+  height: 5px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  position: absolute;
+}*/
+
+.here {
+    text-decoration: underline;
+    color: #acacff;
+}
+
+@font-face {
+    font-family: 'dmsans';
+    src: url('fonts/dmsans.woff2') format('woff2'),
+         url('fonts/dmsans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'rubik';
+    src: url('fonts/rubik.woff2') format('woff2'),
+         url('fonts/rubik.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+    </style>
+    <script src="script.js"></script>
+    <title>welcome </title>
+</head>
+<body>
+    
+    <nav>
+       <div class="progress-container">
+       <div class="progress-bar" id="myBar"></div>
+       </div>
+       <a href="#" class="here" style="padding-left: 75px">home</a><p>/</p>
+       <a href="projects.html" target="_blank">projects</a><p>/</p>
+       <a href="biolink.html" target="_blank">biolink</a><p>/</p>
+       <div class="email" style="cursor: pointer;">contact</div>
+    </nav>
+    <div id="emailPopup" class="popup">
+        <h3 id="close" class="close">&times;</h3>
+        <p>email:<br><a href="mailto:sayreobryan03@gmail.com?subject=Feedback&body=[What's your issue?]" target="_blank">sayreobryan03@gmail.com</a></p>
+        <p>discord:<br><a href="https://discord.dog/895052437667328050" target="_blank">themonkeymahn</a></p>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="header">
+        <b>
+        <span>welcome, to</span><br>
+        <span style="color: #e0c600;">my portfolio</span>.
+        </b>
+    </div>
+    <h2>About me:</h2>
+    <p>I'm Sayre, a passionate freelance web developer with a vision to venture into the business world. My journey in web development has been one of self-driven learning, drawing knowledge from reputable sources and dedicating myself to honing my skills.</p><br>
+    <p>Education:</p>
+    <ul>
+        <li>Self Taught Web Developer</li>
+        <li>Continuously learning and improving skills through online resources and courses</li>
+    </ul><br>
+    <p>Skills:</p>
+    <ul>
+        <li>Proficient in HTML and CSS</li>
+        <li>Expanding my expertice in JavaScript</li>
+    </ul><br>
+    <p>Work Experience:</p>
+    <p>Currently I'm not of age to have a job, but I'm starting a programming club with one of my friends as the camp officer.</p><br>
+    <p>Projects:</p>
+    <ul>
+        <li>(In Progress) Free Biolink Service. <i>(A Biolink page is a page made just for you that can link social media accounts, phone numbers, and names in one consise page.)</i></li>
+        <li>I used to make "unblocked games" websites for my colleagues at school. I no longer do this anymore, but I used to feel a bit devious when I did.</li>
+    </ul><br>
+    <p>Quotes from peers:</p>
+    <p>"We are amazed by Sayre's web development skills. His sites are not only functional but also beautifully designed." - My Friends</p>
+    <p>"Sayre's work is clean and impressive. I'm proud of what he's achieved in web development." - My Father</p>
+    <p>"Sayre has a real talent for creating visually appealing websites. His projects are a testament to his dedication and creativity." - Grandma</p><br>
+    <p>Fun Facts:</p>
+    <p>I have two dogs, Dexter (left) and Pickles (right)</p>
+    <img src="img/doofus.jpg"><img src="img/picky.jpg">
+</body>
+</html>
+<script>
+    // Wrap your JavaScript code in a DOMContentLoaded event listener
+    document.addEventListener("DOMContentLoaded", function() {
+        const modal = document.getElementById("emailPopup");
+        const overlay = document.getElementById("overlay");
+    
+        // Get the div that triggers the modal by its class
+        const triggerDiv = document.querySelector(".email");
+    
+        // Get the button that closes the modal by its id
+        const closeModalBtn = document.getElementById("close");
+    
+        // Function to open the modal
+        function openModal() {
+            modal.style.display = "block";
+            overlay.style.display = "block";
+        }
+    
+        // Function to close the modal
+        function closeModal() {
+            modal.style.display = "none";
+            overlay.style.display = "none";
+        }
+    
+        // Event listener for opening the modal when clicking the div
+        triggerDiv.addEventListener("click", openModal);
+    
+        // Event listener for closing the modal when clicking the close button
+        closeModalBtn.addEventListener("click", closeModal);
+    });
+</script>
+<script>
+    window.onscroll = function() {scrollIndicator()};
+
+function scrollIndicator() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
+</script>
+<!--
+<script>
+    let point = [], 
+    mouse = { 
+      a: 0,
+      b: 0  
+    };
+
+let Points = function(){
+  this.a = 0;
+  this.b = 0;
+  this.node = (function(){
+    let m = document.createElement("div");
+    m.className = "mouse-trail";
+    document.body.appendChild(m);
+    return m;
+  }());
+};
+
+Points.prototype.draw = function(){
+  this.node.style.left = this.a + "px";
+  this.node.style.top = this.b + "px";
+};
+
+for(let i = 0; i < 15; i++){
+  let h = new Points();
+  point.push(h);
+}
+
+function draw(){
+  let a = mouse.a,
+      b = mouse.b;
+  
+  point.forEach(function(points, index, point){
+    let mark = point[index + 1] || point[0];
+    
+    points.a = a;
+    points.b = b;
+    points.draw();
+    a += (mark.a - points.a) * .2;
+    b += (mark.b - points.b) * .2;
+  });
+}
+
+addEventListener("mousemove", (e) => {
+  mouse.a = e.pageX;
+  mouse.b = e.pageY;
+});
+
+function animation(){
+  draw();
+  requestAnimationFrame(animation);
+}
+
+animation();
+</script>
+-->
