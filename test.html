@@ -1,77 +1,81 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pop-up Modal</title>
+    <title>Document</title>
     <style>
-        /* Styles for the modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            z-index: 999;
-        }
+        .mouse-trail{
+  width: 5px;
+  height:5px;
+  border-radius:3px;
+  background-color:rgb(200, 200, 200);
+  position:absolute;
+}
 
-        /* Styles for the overlay background */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-        }
+body {
+  cursor: none;
+  background-color: #001d2b;
+}
     </style>
 </head>
 <body>
-    <!-- Trigger the modal by clicking this div -->
-    <div id="openModal">Click me to open the modal</div>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <h2>Pop-up Modal</h2>
-        <p>This is a simple pop-up modal.</p>
-        <button id="closeModal">Close</button>
-    </div>
-
-    <!-- The Overlay Background -->
-    <div id="overlay" class="overlay"></div>
-
-    <script>
-        // Get the modal and overlay elements
-        const modal = document.getElementById("myModal");
-        const overlay = document.getElementById("overlay");
-
-        // Get the div that triggers the modal
-        const triggerDiv = document.getElementById("openModal");
-
-        // Get the button that closes the modal
-        const closeModalBtn = document.getElementById("closeModal");
-
-        // Function to open the modal
-        function openModal() {
-            modal.style.display = "block";
-            overlay.style.display = "block";
-        }
-
-        // Function to close the modal
-        function closeModal() {
-            modal.style.display = "none";
-            overlay.style.display = "none";
-        }
-
-        // Event listener for opening the modal when clicking the div
-        triggerDiv.addEventListener("click", openModal);
-
-        // Event listener for closing the modal when clicking the close button
-        closeModalBtn.addEventListener("click", closeModal);
-    </script>
+    
 </body>
 </html>
+<script>
+    let point = [], 
+    mouse = { 
+      a: 0,
+      b: 0  
+    };
+
+let Points = function(){
+  this.a = 0;
+  this.b = 0;
+  this.node = (function(){
+    let m = document.createElement("div");
+    m.className = "mouse-trail";
+    document.body.appendChild(m);
+    return m;
+  }());
+};
+
+Points.prototype.draw = function(){
+  this.node.style.left = this.a + "px";
+  this.node.style.top = this.b + "px";
+};
+
+for(let i = 0; i < 15; i++){
+  let h = new Points();
+  point.push(h);
+}
+
+function draw(){
+  let a = mouse.a,
+      b = mouse.b;
+  
+  point.forEach(function(points, index, point){
+    let mark = point[index + 1] || point[0];
+    
+    points.a = a;
+    points.b = b;
+    points.draw();
+    a += (mark.a - points.a) * .5;
+    b += (mark.b - points.b) * .5;
+  });
+}
+
+addEventListener("mousemove", (e) => {
+  mouse.a = e.pageX;
+  mouse.b = e.pageY;
+});
+
+function animation(){
+  draw();
+  requestAnimationFrame(animation);
+}
+
+animation();
+  
+</script>
